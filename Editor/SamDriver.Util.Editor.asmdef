@@ -1,0 +1,17 @@
+{
+    "name": "SamDriver.Util.Editor",
+    "references": [
+        "GUID:551bc0014986d414190189b558e3ec1f"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
