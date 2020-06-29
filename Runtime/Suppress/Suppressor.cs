@@ -27,12 +27,12 @@ namespace SamDriver.Util
             }
         }
 
-        [SerializeField] EventMB triggerBegin;
-        [SerializeField] EventMB triggerEnd;
+        [SerializeField] EventMB triggerBegin = default;
+        [SerializeField] EventMB triggerEnd = default;
 
         // typed as MonoBehaviour to allow components to be easily set in the inspector,
         // will only actually add those that implement ISuppressable.
-        [SerializeField] MonoBehaviour[] componentsToSuppress;
+        [SerializeField] MonoBehaviour[] componentsToSuppress = default;
 
         HashSet<ISuppressable> Suppressables = new HashSet<ISuppressable>();
 
