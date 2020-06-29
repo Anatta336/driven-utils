@@ -39,7 +39,6 @@ namespace SamDriver.Util
             }
             else
             {
-                GUILayout.BeginHorizontal();
                 using (new GUILayout.HorizontalScope())
                 {
                     if (GUILayout.Button(actionButton.ButtonName))
