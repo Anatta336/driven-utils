@@ -43,7 +43,7 @@ namespace SamDriver.Util
         const float π = 3.1415926535897932384626433832795f;
 
         /// <summary>
-        /// Takes an angle in degrees and converts it to the range (-π, π]
+        /// Takes an angle in radians and converts it to the range (-π, π]
         /// That is, exclusive of -π° and inclusive of π.
         /// </summary>
         public static float LoopRadians(float angleRadians)
