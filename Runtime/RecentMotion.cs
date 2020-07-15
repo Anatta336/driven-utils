@@ -37,6 +37,17 @@ namespace SamDriver.Util
             }
         }
 
+        public Vector3 VelocityOfLastStep { get => GetPosition(0) - GetPosition(-1); }
+
+        Vector3 GetPosition(int relativeIndex)
+        {
+            int index = (currentIndex - 1 + relativeIndex);
+            while (index < 0) index += recentPositions.Length;
+            index = index  % recentPositions.Length;
+            
+            return recentPositions[index];
+        }
+
         public void OnEnable()
         {
             recentPositions = new Vector3[movingAverageStepCount];
