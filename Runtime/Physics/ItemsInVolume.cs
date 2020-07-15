@@ -10,6 +10,7 @@ namespace SamDriver.Util
         CountedSet<T> contents = new CountedSet<T>();
 
         public bool IsEmpty { get => contents.IsEmpty; }
+        public int Count { get => contents.KeyCount; }
 
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
@@ -35,6 +36,8 @@ namespace SamDriver.Util
 
         public void OnTriggerEnter(Collider other)
         {
+            if (other.attachedRigidbody == null) return;
+
             T item = other.attachedRigidbody.GetComponentInChildren<T>();
             if (item == null) return;
 
@@ -44,6 +47,8 @@ namespace SamDriver.Util
 
         public void OnTriggerExit(Collider other)
         {
+            if (other.attachedRigidbody == null) return;
+            
             T item = other.attachedRigidbody.GetComponentInChildren<T>();
             if (item == null) return;
 
@@ -56,6 +61,11 @@ namespace SamDriver.Util
                 var newCount = contents.Remove(item);
                 if (newCount == 0) RaiseItemExit(item);
             }
+        }
+
+        public void OnItemDisabled(T item)
+        {
+            contents.RemoveWholly(item);
         }
     }
 }
