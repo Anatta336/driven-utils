@@ -2,22 +2,15 @@
 
 namespace SamDriver.Util
 {
-    [RequireComponent(typeof(Joint))]
     [ExecuteInEditMode]
     public class JointPointAtAnchor : MonoBehaviour
     {
-        Joint joint
-        {
-            get
-            {
-                if (joint_ == null) joint_ = GetComponent<Joint>();
-                return joint_;
-            }
-        }
-        Joint joint_;
+        [SerializeField] Joint joint = default;
 
         void Update()
         {
+            if (joint == null) return;
+            
             var connectedBody = joint.connectedBody;
             if (connectedBody == null) return;
 
