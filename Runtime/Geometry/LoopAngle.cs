@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace SamDriver.Util
 {
     public static class LoopAngle
@@ -40,6 +42,15 @@ namespace SamDriver.Util
             return angleDegrees;
         }
 
+        public static Vector3 LoopDegrees(Vector3 anglesDegrees)
+        {
+            return new Vector3(
+                LoopDegrees(anglesDegrees.x),
+                LoopDegrees(anglesDegrees.y),
+                LoopDegrees(anglesDegrees.z)
+            );
+        }
+
         const float π = 3.1415926535897932384626433832795f;
 
         /// <summary>
@@ -75,6 +86,15 @@ namespace SamDriver.Util
             // range (-π, π]
 
             return angleRadians;
+        }
+
+        public static Vector3 LoopRadians(Vector3 anglesRadians)
+        {
+            return new Vector3(
+                LoopRadians(anglesRadians.x),
+                LoopRadians(anglesRadians.y),
+                LoopRadians(anglesRadians.z)
+            );
         }
     }
 }
