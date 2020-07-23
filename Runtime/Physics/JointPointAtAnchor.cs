@@ -5,16 +5,16 @@ namespace SamDriver.Util
     [ExecuteInEditMode]
     public class JointPointAtAnchor : MonoBehaviour
     {
-        [SerializeField] Joint joint = default;
+        [SerializeField] Joint _joint = default;
 
         void Update()
         {
-            if (joint == null) return;
+            if (_joint == null) return;
             
-            var connectedBody = joint.connectedBody;
+            var connectedBody = _joint.connectedBody;
             if (connectedBody == null) return;
 
-            var worldAnchorOnConnected = connectedBody.transform.TransformPoint(joint.connectedAnchor);
+            var worldAnchorOnConnected = connectedBody.transform.TransformPoint(_joint.connectedAnchor);
             var hereToThere = worldAnchorOnConnected - transform.position;
             
             // rotation gets messy at small distances (and impossible at zero)
